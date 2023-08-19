@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 5rem;
+        }
+
+        .intro {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        input {
+            width: 4rem;
+        }
+
+        .start {
+            border-radius: 8px;
+            border: 1px solid rgba(17, 17, 17, 0.10);
+            background: #FFF;
+            width: 19rem;
+            height: 21rem;
+            flex-shrink: 0;
+            padding: 1rem;
+        }
+
+        .start:hover {
+            background-color: rgba(250, 215, 244, 0.325);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            row-gap: 1rem;
+            align-content: center;
+            justify-items: center;
+            padding: 1rem;
+        }
+
+        .one {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding-top: 1rem;
+        }
+
+        p, input, button{
+            margin-top: 1rem;
+            font-size: large;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 800;
+        }
+
+        button:hover {
+            background-color: aliceblue;
+        }
+
+        button {
+            padding: 1rem;
+            border-radius: 0.7rem;
+            background-color: rgb(8, 114, 207);
+            width: 15rem;
+        }
+        span{
+            font-size: large;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 800;  
+        }
+    </style>
+</head>
+
+<body>
+    <div class="intro">
+        <h1>Lets try some new things</h1>
+        <span><img src="wink.png" alt=""></span>
+    </div>
+    <div class="grid">
+        <div class="start">
+            <div class="one">
+                <img src="./geometry-genius-resources/images/triangle.png" alt="">
+                <h3>Triangle</h3>
+                <p>Area (A) = 0.5 x b x h</p>
+                <span id="ready_tra"></span>
+                <span>
+                    <input type="text" name="" id="tra_one" placeholder="b">
+                    <span>cm</span>
+                    <input type="text" name="" id="tra_two" placeholder="h">
+                    <span>cm</span>
+                </span>
+                <div><button id="btn_1">Calculate</button></div>
+            </div>
+        </div>
+
+        <div class="start">
+            <div class="one">
+                <img src="./geometry-genius-resources/images/rectangle.png" alt="">
+                <h3>Rectangle</h3>
+                <p>Area (A) = w x l</p>
+                <span id="ready_rect"></span>
+                <span>
+                    <input type="text" name="" id="rect_width" placeholder="w">
+                    <span>cm</span>
+                    <input type="text" name="" id="rect_length" placeholder="l">
+                    <span>cm</span>
+                </span>
+                <div><button id="btn_2">Calculate</button></div>
+            </div>
+        </div>
+
+        <div class="start">
+            <div class="one">
+                <img src="./geometry-genius-resources/images/parallelogram.png" alt="">
+                <h3>Parallelogram</h3>
+                <p>Area (A) = b x h</p>
+                <span id="ready_para"></span>
+                <span>
+                    <input type="text" name="" id="para_base" placeholder="b">
+                    <span>cm</span>
+                    <input type="text" name="" id="para_height" placeholder="h">
+                    <span>cm</span>
+                </span>
+                <div><button id="btn_3">Calculate</button></div>
+            </div>
+        </div>
+
+        <div class="start">
+            <div class="one">
+                <img src="./geometry-genius-resources/images/rhombus.png" alt="">
+                <h3>Rhombus</h3>
+                <p>Area (A) = 0.5 x d1 x d2</p>
+                <span id="ready_rhombus"></span>
+                <span>
+                    <input type="text" name="" id="rhombus_d1" placeholder="d1">
+                    <span>cm</span>
+                    <input type="text" name="" id="rhombus_d2" placeholder="d2">
+                    <span>cm</span>
+                </span>
+                <div><button id="btn_4">Calculate</button></div>
+            </div>
+        </div>
+
+        <div class="start">
+            <div class="one">
+                <img src="./geometry-genius-resources/images/pentagon.png" alt="">
+                <h3>Pentagon</h3>
+                <p>Area (A) = 0.5 x p x b</p>
+                <span id="ready_pentagon"></span>
+                <span>
+                    <input type="text" name="" id="pentagon_p" placeholder="p">
+                    <span>cm</span>
+                    <input type="text" name="" id="pentagon_b" placeholder="b">
+                    <span>cm</span>
+                </span>
+                <div><button id="btn_5">Calculate</button></div>
+            </div>
+        </div>
+
+        <div class="start">
+            <div class="one">
+                <img src="./geometry-genius-resources/images/ellipse.png" alt="">
+                <h3>Ellipse</h3>
+                <p>Area (A) = 3.1416 x a x b</p>
+                <span id="ready_ellipse"></span>
+                <span>
+                    <input type="text" name="" id="ellipse_a" placeholder="a">
+                    <span>cm</span>
+                    <input type="text" name="" id="ellipse_b" placeholder="b">
+                    <span>cm</span>
+                </span>
+                <div><button id="btn_6">Calculate</button></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tra1 = document.getElementById("tra_one");
+        const tra2 = document.getElementById("tra_two");
+        const triangle_result = document.getElementById("ready_tra");
+        const btn_one = document.getElementById("btn_1");
+
+        const rectWidth = document.getElementById("rect_width");
+        const rectLength = document.getElementById("rect_length");
+        const rectResult = document.getElementById("ready_rect");
+        const btn_two = document.getElementById("btn_2");
+
+        const paraBase = document.getElementById("para_base");
+        const paraHeight = document.getElementById("para_height");
+        const paraResult = document.getElementById("ready_para");
+        const btn_three = document.getElementById("btn_3");
+
+        const rhombusD1 = document.getElementById("rhombus_d1");
+        const rhombusD2 = document.getElementById("rhombus_d2");
+        const rhombusResult = document.getElementById("ready_rhombus");
+        const btn_four = document.getElementById("btn_4");
+
+        const pentagonP = document.getElementById("pentagon_p");
+        const pentagonB = document.getElementById("pentagon_b");
+        const pentagonResult = document.getElementById("ready_pentagon");
+        const btn_five = document.getElementById("btn_5");
+
+        const ellipseA = document.getElementById("ellipse_a");
+        const ellipseB = document.getElementById("ellipse_b");
+        const ellipseResult = document.getElementById("ready_ellipse");
+        const btn_six = document.getElementById("btn_6");
+
+        btn_one.addEventListener("click", function () {
+            const sum1 = 0.5 * parseInt(tra1.value) * parseInt(tra2.value);
+            triangle_result.innerText = `Result: ${sum1} cm²`;
+            tra1.value = "";
+            tra2.value = "";
+        });
+
+        btn_two.addEventListener("click", function () {
+            const sum2 = parseInt(rectWidth.value) * parseInt(rectLength.value);
+            rectResult.innerText = `Result: ${sum2} cm²`;
+            rectWidth.value = "";
+            rectLength.value = "";
+        });
+
+        btn_three.addEventListener("click", function () {
+            const sum3 = parseInt(paraBase.value) * parseInt(paraHeight.value);
+            paraResult.innerText = `Result: ${sum3} cm²`;
+            paraBase.value = "";
+            paraHeight.value = "";
+        });
+
+        btn_four.addEventListener("click", function () {
+            const sum4 = 0.5 * parseInt(rhombusD1.value) * parseInt(rhombusD2.value);
+            rhombusResult.innerText = `Result: ${sum4} cm²`;
+            rhombusD1.value = "";
+            rhombusD2.value = "";
+        });
+
+        btn_five.addEventListener("click", function () {
+            const sum5 = 0.5 * parseInt(pentagonP.value) * parseInt(pentagonB.value);
+            pentagonResult.innerText = `Result: ${sum5} cm²`;
+            pentagonP.value = "";
+            pentagonB.value = "";
+        });
+
+        btn_six.addEventListener("click", function () {
+            const sum6 = 3.1416 * parseInt(ellipseA.value) * parseInt(ellipseB.value);
+            ellipseResult.innerText = `Result: ${sum6} cm²`;
+            ellipseA.value = "";
+            ellipseB.value = "";
+        });
+    </script>
+</body>
+</html>
